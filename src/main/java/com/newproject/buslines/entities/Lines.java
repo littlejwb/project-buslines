@@ -11,7 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_lines")
+@Table(name = "lines")
 public class Lines implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -19,12 +19,16 @@ public class Lines implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column
 	private String departure;
+	
 	@Column
 	private String endpoint;
+	
 	@Column
 	private String time;
+	
 	@Column
 	private String obs;
 

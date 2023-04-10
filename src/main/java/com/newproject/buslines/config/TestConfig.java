@@ -28,6 +28,5 @@ public class TestConfig implements CommandLineRunner {
 		Lines line4 = new Lines(null, "Capão", "Centro", "13h30", "Dias úteis");
 		
 		linesRepository.saveAll(Arrays.asList(line1, line2, line3, line4));
-		
 	}
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.newproject.buslines.entities.Lines;
 import com.newproject.buslines.repositories.LinesRepository;
+import com.newproject.buslines.services.exception.RouteNotFoundException;
 
 @Service
 public class LinesService {
@@ -21,6 +22,11 @@ public class LinesService {
 	}
 	
     public List<Lines> findByDepartureAndEndpoint(String departure, String endpoint) {
-        return linesRepository.findByDepartureAndEndpoint(departure, endpoint);
+    	List<Lines> routes = linesRepository.findByDepartureAndEndpoint(departure, endpoint);
+    	
+    	if (routes.isEmpty()) {
+    		throw new RouteNotFoundException(departure, endpoint);
+    	}
+    	return routes;
 	}
 }
