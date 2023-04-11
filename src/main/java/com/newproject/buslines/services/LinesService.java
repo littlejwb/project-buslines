@@ -23,7 +23,6 @@ public class LinesService {
 	
     public List<Lines> findByDepartureAndEndpoint(String departure, String endpoint) {
     	List<Lines> routes = linesRepository.findByDepartureAndEndpoint(departure, endpoint);
-    	
     	if (routes.isEmpty()) {
     		throw new RouteNotFoundException(departure, endpoint);
     	}

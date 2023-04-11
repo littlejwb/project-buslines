@@ -3,15 +3,10 @@ package com.newproject.buslines.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "lines")
+@Table(name = "bus_lines")
 public class Lines implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -19,17 +14,9 @@ public class Lines implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column
 	private String departure;
-	
-	@Column
 	private String endpoint;
-	
-	@Column
 	private String time;
-	
-	@Column
 	private String obs;
 
 	public Lines() {

@@ -26,9 +26,10 @@ public class LinesResources {
 		List<Lines> list = linesService.findAll();
 		return ResponseEntity.ok().body(list);
 	}
-	
+
 	@GetMapping("/{departure}/{endpoint}")
-    public List<Lines> getLinesByDepartureAndEndpoint(@PathVariable String departure, @PathVariable String endpoint) {
-        return linesService.findByDepartureAndEndpoint(departure, endpoint);
-	}	
+	public ResponseEntity<List<Lines>> getLinesByDepartureAndEndpoint(@PathVariable String departure, @PathVariable String endpoint) {
+		List<Lines> lines = linesService.findByDepartureAndEndpoint(departure, endpoint);
+			return ResponseEntity.ok().body(lines);
+	}
 }
