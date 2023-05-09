@@ -2,6 +2,7 @@ package com.newproject.buslines.services;
 
 import java.util.List;
 
+import com.newproject.buslines.resources.util.URL;
 import org.springframework.stereotype.Service;
 
 import com.newproject.buslines.entities.Lines;
@@ -22,7 +23,9 @@ public class LinesService {
 	}
 	
     public List<Lines> findByDepartureAndEndpoint(String departure, String endpoint) {
-    	List<Lines> routes = linesRepository.findByDepartureAndEndpoint(departure, endpoint);
+		String encodedDep = URL.decodeParam(departure);
+		String encodedEnd = URL.decodeParam(endpoint);
+    	List<Lines> routes = linesRepository.findByDepartureAndEndpoint(encodedDep, encodedEnd);
     	if (routes.isEmpty()) {
     		throw new RouteNotFoundException(departure, endpoint);
     	}
