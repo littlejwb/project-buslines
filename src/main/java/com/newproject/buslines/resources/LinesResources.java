@@ -26,7 +26,7 @@ public class LinesResources {
 		return ResponseEntity.ok().body(list);
 	}
 
-	@GetMapping("/search/{departure}/{endpoint}")
+	@GetMapping("/{departure}/{endpoint}")
 	public ResponseEntity<List<Lines>> linesByDepartureAndEndpoint(@PathVariable String departure, @PathVariable String endpoint) {
 		String encodedDep = URL.decodeParam(departure);
 		String encodedEnd = URL.decodeParam(endpoint);
